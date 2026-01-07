@@ -1,23 +1,652 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "태아실손보험 비교 및 상담 서비스",
+      "provider": {
+        "@type": "Organization",
+        "name": "태아실손보험 비교센터",
+        "url": "https://yourdomain.com",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+82-10-1234-5678",
+          "contactType": "고객 상담"
+        }
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "대한민국"
+      },
+      "description": "2026년 태아실손보험의 가입 시기부터 보장 내용, 보험료 비교 분석까지 전문적인 상담을 제공합니다. 저렴한 비용으로 최적의 보장을 선택할 수 있도록 도와드립니다.",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "태아실손보험 상품 비교",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "A사 태아실손보험 (기본형)"
+            },
+            "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "30000",
+                "priceCurrency": "KRW",
+                "description": "기본 보장 위주로 구성된 실속형 상품"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "B사 태아실손보험 (프리미엄형)"
+            },
+            "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "50000",
+                "priceCurrency": "KRW",
+                "description": "출산 관련 특약 및 고액 치료비 집중 보장 상품"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+
+    <style>
+      /* Google Fonts */
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+      /* Basic Styles */
+      body {
+        font-family: "Noto Sans KR", sans-serif;
+        margin: 0;
+        padding: 0;
+        line-height: 1.8;
+        background-color: #f0f4f7; /* Soft background color */
+        color: #333;
+        font-size: 16px;
+      }
+      header {
+        background-color: #1a5c8a; /* Deep blue header */
+        color: white;
+        padding: 2.5rem 1rem;
+        text-align: center;
+        border-bottom: 5px solid #ff9900; /* Accent color border */
+      }
+      header h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+      }
+      header p {
+        font-size: 1.1rem;
+        margin: 0;
+        color: #e6e6e6;
+      }
+      main {
+        max-width: 1000px;
+        margin: 2.5rem auto;
+        padding: 0 1.5rem;
+        background-color: white;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        border-radius: 12px;
+      }
+      section {
+        padding: 2.5rem 0;
+        border-bottom: 1px dashed #e0e0e0;
+      }
+      section:last-child {
+        border-bottom: none;
+      }
+      h2 {
+        color: #1a5c8a;
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-top: 0;
+        border-left: 5px solid #ff9900;
+        padding-left: 1rem;
+        margin-bottom: 1.5rem;
+      }
+      h3 {
+        color: #333;
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-top: 2rem;
+        border-bottom: 2px solid #f0f0f0;
+        padding-bottom: 0.5rem;
+      }
+      a {
+        color: #1a5c8a;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+      a:hover {
+        color: #ff9900;
+      }
+
+      /* Navigation */
+      nav {
+        background-color: #f7f7f7;
+        padding: 1rem 0;
+        text-align: center;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        border-bottom: 1px solid #ddd;
+      }
+      nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      nav a {
+        color: #333;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      nav a:hover {
+        background-color: #e0f0ff;
+        color: #1a5c8a;
+      }
+
+      /* Keyword Tags */
+      .keyword-tags {
+        margin: 2rem 0;
+        padding: 1rem;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .keyword-tags span {
+        background-color: #e0f0ff;
+        color: #1a5c8a;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      /* Data Tables */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1.5rem;
+      }
+      th, td {
+        padding: 1rem;
+        border: 1px solid #e0e0e0;
+        text-align: left;
+        font-size: 0.95rem;
+      }
+      th {
+        background-color: #f7f7f7;
+        font-weight: 700;
+        color: #1a5c8a;
+      }
+      td strong {
+        color: #ff6600;
+      }
+
+      /* Key Information Box */
+      .info-box {
+        background-color: #f4f8fb;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        border: 1px solid #e0e0e0;
+      }
+      .info-box h3 {
+        color: #1a5c8a;
+        margin-top: 0;
+        font-size: 1.2rem;
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+      .info-box ul {
+        list-style: none;
+        padding-left: 0;
+      }
+      .info-box li {
+        margin-bottom: 0.5rem;
+        position: relative;
+        padding-left: 1.5rem;
+      }
+      .info-box li::before {
+        content: "•";
+        color: #ff9900;
+        font-size: 1.2rem;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      /* Call to Action (CTA) */
+      .cta-section {
+        background-color: #1a5c8a;
+        color: white;
+        text-align: center;
+        padding: 2.5rem;
+        border-radius: 12px;
+        margin-top: 2rem;
+      }
+      .cta-section h2 {
+        color: white;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        border-left: none;
+        padding-left: 0;
+      }
+      .cta-button {
+        display: inline-block;
+        background-color: #ff9900;
+        color: white;
+        font-weight: 700;
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        text-decoration: none;
+        margin-top: 1.5rem;
+        transition: background-color 0.3s ease;
+        font-size: 1.1rem;
+      }
+      .cta-button:hover {
+        background-color: #e68a00;
+      }
+
+      /* FAQ Accordion */
+      .faq-list {
+        list-style: none;
+        padding: 0;
+      }
+      .faq-item {
+        margin-bottom: 1rem;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .faq-question {
+        background-color: #f7f7f7;
+        padding: 1rem 1.5rem;
+        cursor: pointer;
+        font-weight: 600;
+        color: #333;
+        position: relative;
+        display: block;
+      }
+      .faq-question::after {
+        content: "+";
+        font-size: 1.5rem;
+        position: absolute;
+        right: 1.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: transform 0.3s ease;
+      }
+      .faq-question.active::after {
+        content: "-";
+        transform: translateY(-50%) rotate(0deg);
+      }
+      .faq-answer {
+        background-color: white;
+        padding: 1rem 1.5rem;
+        border-top: 1px solid #e0e0e0;
+        display: none;
+        line-height: 1.6;
+      }
+
+      /* Form Section */
+      .form-section {
+        background-color: #f4f8fb;
+        padding: 2rem;
+        border-radius: 12px;
+        margin-top: 2rem;
+      }
+      .form-section label {
+        display: block;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+        color: #333;
+      }
+      .form-section input[type="text"],
+      .form-section input[type="tel"],
+      .form-section select {
+        width: calc(100% - 2rem);
+        padding: 0.8rem 1rem;
+        margin-bottom: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 1rem;
+      }
+      .form-section button {
+        background-color: #ff6600;
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 700;
+        width: 100%;
+        font-size: 1.1rem;
+        transition: background-color 0.3s ease;
+      }
+      .form-section button:hover {
+        background-color: #e65c00;
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        padding: 2rem;
+        font-size: 0.9rem;
+        color: #777;
+        background-color: #e0e0e0;
+        margin-top: 2rem;
+      }
+
+      /* Responsiveness */
+      @media (max-width: 768px) {
+        body { font-size: 15px; }
+        main { padding: 0 1rem; margin: 1.5rem auto; }
+        nav ul { gap: 0.5rem; }
+        nav a { padding: 0.4rem 0.8rem; font-size: 0.9rem; }
+        header { padding: 2rem 1rem; }
+        h1 { font-size: 1.8rem; }
+        h2 { font-size: 1.6rem; }
+        th, td { padding: 0.8rem; font-size: 0.9rem; }
+      }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>2026 태아실손보험 가입 가이드: 평균 금액, 장단점 분석 및 순위 추천</h1>
+        <p>엄마와 아기를 위한 든든한 보장, 현명하게 선택하는 방법</p>
+    </header>
+
     <main>
-      <h1>Home page</h1>
+        <nav>
+            <ul>
+                <li><a href="#intro">태아실손보험이란?</a></li>
+                <li><a href="#comparison">보장 내용 비교</a></li>
+                <li><a href="#cost">보험료 분석 및 평균 금액</a></li>
+                <li><a href="#advantages">장점 vs 단점</a></li>
+                <li><a href="#faq">자주 묻는 질문</a></li>
+                <li><a href="#contact">전문가 상담</a></li>
+            </ul>
+        </nav>
+
+        <section id="intro">
+            <h2>태아실손보험, 왜 중요할까요? (2026년 가이드)</h2>
+            <p><strong>태아실손보험</strong>은 출생 전 태아를 대상으로 가입하는 보험으로, 태아가 태어난 직후 발생할 수 있는 선천성 질환이나 저체중아 출산, 인큐베이터 이용 등에 대한 위험을 보장합니다. 일반 어린이보험으로는 보장받을 수 없는 출산 직후의 위험을 대비하기 위해 필수적으로 여겨지고 있습니다.</p>
+            <p>2026년 기준, 출산 환경 변화와 의료 기술 발달로 인해 신생아 집중 치료실 이용률이 증가하는 추세입니다. 특히 출산 연령이 높아지면서 고위험 산모가 늘어나는 것도 태아실손보험 가입의 필요성을 높이는 요인입니다. 태아실손보험은 단순한 질병 보장을 넘어, 생애 초기 가장 취약한 시기에 발생할 수 있는 고액의 의료비를 실질적으로 커버해주는 든든한 버팀목이 됩니다.</p>
+            <p>많은 예비 부모님들이 <strong>태아보험</strong>과 <strong>어린이보험</strong>의 차이점을 궁금해하십니다. 태아보험은 어린이보험에 태아 특약이 추가된 형태로, 임신 중에만 가입할 수 있습니다. 출산 후에는 가입할 수 없는 특약(선천성 질환, 출산 시 위험 등)을 보장받기 위해서는 반드시 임신 기간 내에 가입해야 합니다. <strong>가입 시기</strong>를 놓치면 중요한 보장을 받을 수 없으므로, 전문가들은 임신 사실을 확인한 직후 가입을 서두를 것을 권장합니다.</p>
+
+            <h3>태아실손보험 핵심 키워드</h3>
+            <div class="keyword-tags">
+                <span>태아실손보험</span>
+                <span>태아보험</span>
+                <span>어린이보험</span>
+                <span>태아보험 가입시기</span>
+                <span>출산 후 실손보험 가입</span>
+                <span>선천성 질환 보장</span>
+                <span>인큐베이터 비용</span>
+                <span>태아보험 장점</span>
+                <span>태아보험 단점</span>
+                <span>태아보험 순위</span>
+                <span>태아보험 추천</span>
+                <span>태아보험 금액</span>
+                <span>태아보험 평균</span>
+                <span>태아보험 예상</span>
+                <span>태아보험 저렴한곳</span>
+                <span>태아보험 싼곳</span>
+                <span>태아보험 내돈내산 후기</span>
+                <span>태아보험 장단점</span>
+                <span>태아보험 차이점</span>
+                <span>태아보험 가입</span>
+                <span>태아특약</span>
+                <span>어린이 실손보험</span>
+                <span>태아실비보험</span>
+                <span>고위험 산모</span>
+                <span>저체중아 보장</span>
+                <span>신생아 입원비</span>
+                <span>2026 태아보험</span>
+                <span>보험료 비교</span>
+                <span>태아보험 설계</span>
+                <span>태아보험 견적</span>
+            </div>
+        </section>
+
+        <section id="comparison">
+            <h2>태아실손보험 vs. 일반 어린이보험: 차이점 비교</h2>
+            <p>태아실손보험은 일반 어린이보험의 기본 실손 보장에 더해, 태아와 관련된 특약을 추가한 상품입니다. 태아 특약은 출생 직후의 위험을 보장하며, 출생 후에는 가입할 수 없습니다. 따라서 가입 시기가 매우 중요합니다.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>구분</th>
+                        <th>태아실손보험 (태아 특약 포함)</th>
+                        <th>일반 어린이보험 (출산 후 가입)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>가입 가능 시기</strong></td>
+                        <td>임신 22주 이전 (보험사별 상이)</td>
+                        <td>출산 후 자녀의 연령 기준</td>
+                    </tr>
+                    <tr>
+                        <td><strong>보장 범위 (핵심)</strong></td>
+                        <td>선천성 질환, 저체중아 인큐베이터 비용, 출산 직후 질병 및 상해 보장</td>
+                        <td>일반적인 질병, 상해, 입원, 통원 치료비 보장</td>
+                    </tr>
+                    <tr>
+                        <td><strong>특약 유무</strong></td>
+                        <td>선천 이상 수술비, 저체중아 입원일당 등 태아 특약 가입 가능</td>
+                        <td>태아 특약 가입 불가</td>
+                    </tr>
+                    <tr>
+                        <td><strong>중요성</strong></td>
+                        <td>출산 후 예상치 못한 고액 의료비 대비에 필수적</td>
+                        <td>성장기 자녀의 건강 관리에 필수적</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>태아실손보험 가입 시, 태아 특약의 보장 내용을 꼼꼼히 확인해야 합니다. 특히 <strong>저체중아 인큐베이터</strong> 보장과 <strong>선천성 질환 진단비</strong>는 신생아에게 발생할 수 있는 주요 위험을 대비하는 핵심 담보입니다. <strong>태아보험 장단점</strong>을 고려할 때, 태아 특약은 가입 후 몇 년간은 보험료 부담이 될 수 있지만, 그 기간 동안의 위험 보장은 어떤 것으로도 대체할 수 없는 <strong>장점</strong>이 됩니다.</p>
+
+            <h3>태아실손보험 핵심 보장 내용 분석</h3>
+            <div class="info-box">
+                <ul>
+                    <li><strong>선천 이상 보장 특약:</strong> 출생 후 발견되는 선천성 기형(심장, 구개열 등) 수술 및 치료비를 보장합니다.</li>
+                    <li><strong>저체중아 인큐베이터 입원일당:</strong> 2.5kg 미만으로 출산한 경우, 인큐베이터 이용에 대한 일당을 지급합니다.</li>
+                    <li><strong>신생아 관련 질병 특약:</strong> 신생아 황달, 폐렴 등 출산 직후 흔히 발생하는 질병에 대한 입원 및 통원 치료비를 보장합니다.</li>
+                    <li><strong>어린이보험 기본 실손:</strong> 입원, 통원, 수술 등 기본적인 의료비를 보장하는 핵심 담보입니다.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="cost">
+            <h2>태아실손보험 보험료 분석: 평균 금액과 예상 비용</h2>
+            <p><strong>태아실손보험 금액</strong>은 보험사, 가입 시기, 특약 구성에 따라 크게 달라집니다. 2026년 기준으로, 태아실손보험의 <strong>평균 금액</strong>은 대략 3만 원에서 7만 원 사이로 형성되어 있습니다. 하지만 이는 가입하는 특약의 종류와 보장 한도에 따라 크게 달라질 수 있습니다. <strong>저렴한곳</strong>을 찾는 것도 중요하지만, 보장 내용을 충분히 고려해야 합니다.</p>
+
+            <p>많은 부모님들이 보험료를 절약하기 위해 <strong>태아보험 싼곳</strong>을 찾지만, 무조건 저렴한 상품보다는 필수 보장을 충분히 갖춘 합리적인 상품을 선택하는 것이 중요합니다. 태아보험은 출생 직후의 고위험 기간이 지나면 보험료가 인하되거나 전환될 수 있으므로, 초기 보험료에 너무 집착하기보다는 장기적인 관점에서 접근해야 합니다.</p>
+
+            <h3>태아보험료 결정 요인</h3>
+            <ol>
+                <li><strong>특약 구성:</strong> 태아 관련 특약 외에 암진단비, 뇌혈관질환 진단비, 심장질환 진단비 등 다양한 특약을 추가할수록 보험료가 상승합니다.</li>
+                <li><strong>보장 기간:</strong> 30세 만기 또는 100세 만기 등 보장 기간에 따라 보험료가 달라집니다.</li>
+                <li><strong>보험사별 할인 정책:</strong> 다태아 할인 등 각 보험사별로 제공하는 할인 혜택을 비교해야 합니다.</li>
+            </ol>
+
+            <p>아래 표는 2026년 주요 보험사별 <strong>태아보험 예상 금액</strong>(예시)을 비교한 자료입니다. 정확한 견적은 개인의 상황에 따라 달라질 수 있으므로 반드시 전문가 상담을 통해 확인하시기 바랍니다.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>보험사</th>
+                        <th>특약 구성</th>
+                        <th>월 예상 보험료 (원)</th>
+                        <th>특징</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>A사</td>
+                        <td>기본형 (선천이상, 인큐베이터) + 주요 진단비 최소화</td>
+                        <td>35,000 ~ 45,000</td>
+                        <td>가장 <strong>저렴한</strong> 기본 보장, 실속형 선택지</td>
+                    </tr>
+                    <tr>
+                        <td>B사</td>
+                        <td>표준형 (A사 기본 + 2대 질환 진단비)</td>
+                        <td>45,000 ~ 60,000</td>
+                        <td>가장 대중적인 선택, <strong>평균</strong>적인 보장 수준</td>
+                    </tr>
+                    <tr>
+                        <td>C사</td>
+                        <td>프리미엄형 (B사 표준 + 고액 치료비 특약)</td>
+                        <td>60,000 ~ 80,000</td>
+                        <td>출산 후 고액 치료에 대비한 집중 보장</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="text-align: right; font-size: 0.85rem; color: #777;">*상기 금액은 예시이며, 실제 견적과 다를 수 있습니다.</p>
+
+        </section>
+
+        <section id="advantages">
+            <h2>태아실손보험의 장점과 단점 (장단점 분석)</h2>
+            <p>태아실손보험은 출산을 앞둔 가정에서 선택이 아닌 필수로 여겨지는 경우가 많습니다. 하지만 가입 전에는 <strong>장단점</strong>을 명확히 파악하고 신중하게 결정해야 합니다.</p>
+
+            <h3>태아실손보험의 장점</h3>
+            <ul>
+                <li><strong>선천성 질환 및 출산 위험 보장:</strong> 출생 후 바로 발생할 수 있는 선천성 질환이나 저체중아 출산에 대한 보장은 태아보험의 가장 큰 <strong>장점</strong>입니다. 일반 어린이보험으로는 절대 가입할 수 없는 영역입니다.</li>
+                <li><strong>의료비 부담 절감:</strong> 신생아 집중 치료실 이용료는 매우 고가이며, 태아보험은 이러한 고액 치료비에 대한 실질적인 보장을 제공합니다. <strong>내돈내산 후기</strong>를 보면 인큐베이터 이용 경험이 있는 부모님들이 태아보험의 가치를 높이 평가합니다.</li>
+                <li><strong>출산 후 가입 거절 방지:</strong> 태아에게 이상 소견이 발견되면 출산 후 어린이보험 가입이 거절되거나 보장 범위에 제한이 생길 수 있습니다. 태아보험은 건강할 때 미리 가입하여 이러한 위험을 방지합니다.</li>
+            </ul>
+
+            <h3>태아실손보험의 단점</h3>
+            <ul>
+                <li><strong>높은 초기 보험료:</strong> 태아 특약이 추가되면서 일반 어린이보험보다 초기 보험료가 다소 높게 책정될 수 있습니다. <strong>단점</strong>으로 지적되기도 하지만, 위험 보장 기간이 지나면 보험료가 조정됩니다.</li>
+                <li><strong>가입 시기 제한:</strong> <strong>가입 시기</strong>를 놓치면 중요한 태아 특약에 가입할 수 없다는 점이 가장 큰 <strong>단점</strong>입니다.</li>
+                <li><strong>보장 범위의 차이점:</strong> 실손보험은 의료비 보장에 초점을 맞추므로, 진단비나 입원일당 등 정액 보장 특약은 별도로 구성해야 합니다.</li>
+            </ul>
+
+            <p><strong>태아보험 추천</strong>을 받을 때, 전문가들은 태아 특약의 보장 기간(1년 만기 vs 30세 만기)과 실손보험의 만기(100세 만기)를 명확히 구분하여 설계하는 것을 권장합니다.</p>
+        </section>
+
+        <section id="faq">
+            <h2>자주 묻는 질문 (FAQ)</h2>
+            <p>많은 예비 부모님들이 궁금해하는 <strong>태아실손보험 가입</strong> 관련 질문들을 모아봤습니다.</p>
+            <ul class="faq-list">
+                <li class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">Q1. 태아실손보험은 언제 가입해야 하나요?</button>
+                    <div class="faq-answer" id="faq-answer-1">
+                        A. 태아실손보험의 핵심인 태아 특약은 보통 임신 22주 이전까지 가입이 가능합니다. 이 기간을 놓치면 태아 특약에 가입할 수 없으므로, 임신 사실을 확인하는 대로 미리 준비하는 것이 좋습니다. <strong>태아보험 가입시기</strong>는 보험사별로 다소 차이가 있을 수 있습니다.
+                    </div>
+                </li>
+                <li class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">Q2. 태아실손보험과 태아보험의 차이는 무엇인가요?</button>
+                    <div class="faq-answer" id="faq-answer-2">
+                        A. 일반적으로 '태아보험'이라고 하면 실손보험(실비)과 어린이보험의 정액 보장 특약이 합쳐진 형태를 의미합니다. '태아실손보험'은 그중 실손 보장 부분(입원, 통원, 수술 시 발생한 의료비를 실제 사용한 만큼 보장)을 강조하는 명칭입니다. 실손보험은 필수적으로 가입하고, 필요에 따라 진단비 등 정액 보장을 추가하는 것이 일반적입니다.
+                    </div>
+                </li>
+                <li class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">Q3. 100세 만기 vs 30세 만기 중 어떤 것이 더 유리한가요?</button>
+                    <div class="faq-answer" id="faq-answer-3">
+                        A. <strong>장단점</strong>이 있습니다. 100세 만기는 장기적으로 안정적인 보장을 받을 수 있지만 초기 보험료가 높습니다. 30세 만기는 초기 보험료가 <strong>저렴한</strong> 대신, 30세 이후 재가입 시점에 질병이 있으면 보험 가입이 어려울 수 있습니다. 최근에는 30세 만기로 가입 후, 30세 시점에 건강 상태에 따라 100세 보장으로 전환하는 옵션이 인기가 많습니다.
+                    </div>
+                </li>
+                <li class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">Q4. 태아실손보험 가입 시 어떤 특약을 중점적으로 봐야 하나요?</button>
+                    <div class="faq-answer" id="faq-answer-4">
+                        A. <strong>태아보험 추천</strong> 시 가장 중요하게 고려되는 특약은 '선천성 질환 수술비', '저체중아 인큐베이터 입원일당'입니다. 그 외에도 '신생아 질병 입원일당' 등 출산 직후 발생 가능한 질환 관련 특약을 충분히 구성하는 것이 좋습니다.
+                    </div>
+                </li>
+                <li class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">Q5. 태아보험 <strong>순위</strong>가 있나요?</button>
+                    <div class="faq-answer" id="faq-answer-5">
+                        A. 보험사별로 특정 상품의 <strong>순위</strong>를 매기기는 어렵습니다. 각 보험사의 장점과 <strong>차이점</strong>이 있기 때문입니다. 중요한 것은 <strong>태아보험 비교</strong>를 통해 가성비 좋은 상품을 선택하는 것입니다. 예를 들어 A사는 선천성 질환 보장이 뛰어나고 B사는 인큐베이터 비용 보장이 높은 식입니다. 저희 비교센터에서 고객님에게 맞는 맞춤형 <strong>태아보험 추천</strong>을 받아보세요.
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section id="external-links">
+            <h2>신뢰할 수 있는 외부 정보 (2026년 기준)</h2>
+            <p>태아실손보험에 대한 추가적인 정보와 신뢰성을 높이기 위해 공신력 있는 기관의 자료를 참고하시기 바랍니다.</p>
+            <ul>
+                <li><a href="https://www.fss.or.kr/" target="_blank">금융감독원 (FSS)</a>: 보험 가입 전 알아야 할 핵심 정보 및 소비자 경보 확인</li>
+                <li><a href="https://www.health.go.kr/" target="_blank">보건복지부 (Ministry of Health and Welfare)</a>: 신생아 및 영유아 건강 관리 정보 참고</li>
+                <li><a href="https://namu.wiki/w/%ED%83%9C%EC%95%84%EB%B3%B4%ED%97%98" target="_blank">나무위키 - 태아보험</a>: 태아보험의 정의, 역사, 주요 논점 등 상세 정보 확인</li>
+                <li><a href="https://www.kostat.go.kr/portal/korea/kor_nw/1/1/index.board?bSeq=15494&aSeq=382228&pageNo=1&boardId=207&cpage=1&kgrp=1&targetRow=1" target="_blank">통계청</a>: 저출산 관련 통계 및 신생아 통계 자료 확인</li>
+                <li><a href="https://www.kofia.or.kr/index.do" target="_blank">생명보험협회</a>: 생명보험 상품 비교 공시 자료 및 소비자 유의사항 확인</li>
+            </ul>
+        </section>
+
+        <section class="form-section" id="contact">
+            <h2>태아실손보험 맞춤 견적 및 무료 상담 신청</h2>
+            <p>태아실손보험 가입은 복잡한 특약과 보험료 <strong>차이점</strong> 때문에 전문가의 도움이 필요합니다. <strong>내돈내산 후기</strong>를 참고하거나 <strong>저렴한곳</strong>만 찾기보다는, 전문가의 분석을 통해 우리 아기에게 맞는 최적의 보장을 찾아보세요.</p>
+            <form action="#" method="post">
+                <label for="name">이름:</label>
+                <input type="text" id="name" name="name" placeholder="고객님의 성함을 입력해주세요." required>
+
+                <label for="phone">연락처:</label>
+                <input type="tel" id="phone" name="phone" placeholder="휴대폰 번호 (예: 01012345678)" required>
+
+                <label for="pregnancy-week">임신 주수:</label>
+                <select id="pregnancy-week" name="pregnancy-week" required>
+                    <option value="">-- 임신 주수 선택 --</option>
+                    <option value="less-than-10">10주 미만</option>
+                    <option value="10-15">10주 ~ 15주</option>
+                    <option value="16-22">16주 ~ 22주</option>
+                    <option value="more-than-22">22주 초과 (상담 필수)</option>
+                </select>
+
+                <label for="memo">문의 내용 (선택):</label>
+                <textarea id="memo" name="memo" rows="4" placeholder="궁금한 점이나 상담 요청 사항을 간략히 남겨주세요."></textarea>
+
+                <button type="submit">무료 맞춤 견적 신청하기</button>
+            </form>
+            <p style="text-align: center; font-size: 0.9rem; margin-top: 1rem; color: #777;">개인정보는 상담 목적으로만 사용되며, 안전하게 보호됩니다.</p>
+        </section>
     </main>
-  </body>
-</html>
+
+    <footer>
+        <p>Copyright &copy; 2026 태아실손보험 비교센터. All rights reserved.</p>
+        <p>본 사이트는 보험 상품 판매를 위한 정보 제공 및 비교를 목적으로 하며, 특정 상품을 추천하거나 판매하지 않습니다. 모든 보험 상품의 가입은 보험 약관을 반드시 확인하시기 바랍니다.</p>
+    </footer>
+
+    <script>
+        // FAQ Accordion Functionality
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const active = button.getAttribute('aria-expanded') === 'true';
+
+                // Collapse other open answers
+                document.querySelectorAll('.faq-question.active').forEach(otherButton => {
+                    if (otherButton !== button) {
+                        otherButton.classList.remove('active');
+                        otherButton.setAttribute('aria-expanded', 'false');
+                        otherButton.nextElementSibling.style.display = 'none';
+                    }
+                });
+
+                // Toggle current answer
+                button.classList.toggle('active');
+                button.setAttribute('aria-expanded', !active);
+                answer.style.display = active ? 'none' : 'block';
+            });
+        });
+    </script>
+
+  
